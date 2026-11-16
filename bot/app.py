@@ -9,12 +9,12 @@ if "modo_escuro" not in st.session_state:
 
 
 # Configuração do Contato WhatsApp (Formato internacional: DDI 55 + DDD 11 + Número)
-NUMERO_WHATSAPP = "5511939432371"
-WHATSAPP_FORMATADO = "(11) 93943-2371"
+NUMERO_WHATSAPP = "SEU NUMERO AQUI"
+WHATSAPP_FORMATADO = "(11) 99999-9999"  # Formato legível para exibição
 
 # 1. Configuração da página
 st.set_page_config(
-    page_title="Solutech Bot | Atendimento Inteligente",
+    page_title="NOME DA SUA LOJA | Atendimento Inteligente",
     page_icon="📱",
     layout="wide"
 )
@@ -153,7 +153,7 @@ st.markdown(css, unsafe_allow_html=True)
 # 3. Base de Dados de Telas
 # -*- coding: utf-8 -*-
 # CATÁLOGO LIMPO extraído das tabelas (sem Kanguru, sem endereços)
-CATALOGO_SOLUTECH = {
+CATALOGO = {
     # ========== IPHONE HD + VIVID ==========
     "iphone x hd vivid": [
         {"tabela": "iPhone HD + VIVID", "tipo": "HD + VIVID", "atacado": "58,00", "varejo": "58,00", "marca": "Apple"}
@@ -854,7 +854,7 @@ with st.sidebar:
     
     if st.button("🗑️ Limpar Histórico do Chat"):
         st.session_state.messages = [
-            {"role": "assistant", "content": f"Olá! Sou o assistente virtual da Solutech. Digite o modelo de tela ou tecnologia que deseja consultar:"}
+            {"role": "assistant", "content": f"Olá! Sou o assistente virtual do estoque. Digite o modelo de tela ou tecnologia que deseja consultar:"}
         ]
         st.rerun()
         if st.button("🌙 Modo Escuro" if not st.session_state.modo_escuro else "☀️ Modo Claro"):
@@ -872,7 +872,7 @@ with st.sidebar:
     st.info("💡 **Exemplos de busca:** 'iPhone 11', 'OLED', 'Incell', 'Moto G22'")
 
 # 5. Cabeçalho
-st.markdown('<p class="main-header">🤖 Solutech Bot</p>', unsafe_allow_html=True)
+st.markdown('<p class="main-header">🤖 Sistema de Consulta de Peças</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Central de Atendimento Inteligente - Consulta de Peças e Atendimento Direct</p>', unsafe_allow_html=True)
 st.markdown('<p class="project-info">Consulta de Peças e Atendimento Direct, criado com Python e Streamlit. Bot gratuito e de código aberto, desenvolvido por Fernando Vinícius.</p>', unsafe_allow_html=True)
 
@@ -885,7 +885,7 @@ def realizar_busca(texto_cliente, marca_filtrada):
     busca_sem_espaco = busca.replace(" ", "")
     resultados = []
     
-    for modelo, opcoes in CATALOGO_SOLUTECH.items():
+    for modelo, opcoes in CATALOGO.items():
         modelo_limpo = modelo.replace(" ", "")
         
         for opcao in opcoes:
@@ -928,7 +928,7 @@ def realizar_busca(texto_cliente, marca_filtrada):
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": f"Oi! Seja bem-vindo à Soluções SP. Qual celular você está consertando hoje? (ou fale conosco no {WHATSAPP_FORMATADO}):"}
+        {"role": "assistant", "content": f"Oi! Seja bem-vindo ao sistema de consulta. Qual celular você está consertando hoje? (ou fale conosco no {WHATSAPP_FORMATADO}):"}
     ]
 if "modo escuro" not in st.session_state:
     st.session_state["modo escuro"] = False
