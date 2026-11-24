@@ -1,0 +1,870 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050508">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Solucell SP | Assistência Técnica para Celulares Android e Apple em São Paulo</title>
+    <meta name="description" content="Assistência para celulares Android e iPhone em São Paulo. Consulte troca de tela, bateria, configuração e avaliação pelo WhatsApp.">
+    <meta name="keywords" content="assistência técnica celular, conserto celular, troca de tela, troca de bateria, configuração de aparelho, recuperação de dados, conserto celular São Paulo, Solucell SP">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://solucellsp.com.br/">
+    <meta name="author" content="Solucell SP">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://solucellsp.com.br/">
+    <meta property="og:title" content="Solucell SP | Assistência Técnica para Celulares Android e Apple">
+    <meta property="og:description" content="Assistência técnica para celulares Android e iPhone, troca de tela, bateria e recuperação de dados. Atendimento rápido em São Paulo.">
+    <meta property="og:image" content="https://solucellsp.com.br/solucell.jpg">
+    <meta property="og:image:alt" content="Logotipo oficial da Solucell SP — assistência técnica, reparo em placas e software mobile">
+    <meta property="og:site_name" content="Solucell SP">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://solucellsp.com.br/">
+    <meta name="twitter:title" content="Solucell SP | Assistência Técnica para Celulares">
+    <meta name="twitter:description" content="Assistência para celulares Android e iPhone, troca de tela, bateria e configuração de aparelho em São Paulo.">
+    <meta name="twitter:image" content="https://solucellsp.com.br/solucell.jpg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN para ativar todas as classes de layout e responsividade -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff00e6;
+            --neon-purple: #a855f7;
+            --neon-green: #00ff88;
+            --dark-bg: #050508;
+            --dark-card: #0e0e14;
+            --border-dim: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-display { font-family: 'Orbitron', 'Inter', sans-serif; }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 240, 255, 0.015) 2px, rgba(0, 240, 255, 0.015) 4px);
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+            animation: gridShift 20s linear infinite;
+        }
+        @keyframes gridShift { 0% { transform: translate(0, 0); } 100% { transform: translate(60px, 60px); } }
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .orb-cyan { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 240, 255, 0.15), transparent 70%); top: -150px; left: -150px; animation: floatOrb 18s ease-in-out infinite alternate; }
+        .orb-magenta { width: 450px; height: 450px; background: radial-gradient(circle, rgba(255, 0, 230, 0.12), transparent 70%); bottom: -150px; right: -150px; animation: floatOrb 22s ease-in-out infinite alternate-reverse; }
+        .orb-purple { width: 400px; height: 400px; background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%); top: 20%; right: 20%; animation: floatOrb 16s ease-in-out infinite alternate; }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(80px, -80px) scale(1.1); } }
+        .glass {
+            background: rgba(14, 14, 20, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-dim);
+        }
+        .glass:hover {
+            border-color: var(--border-glow);
+            background: rgba(22, 22, 32, 0.8);
+        }
+        .icon-ring {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass:hover .icon-ring {
+            background: rgba(0, 240, 255, 0.18);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 24px rgba(0, 240, 255, 0.2);
+        }
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 12px var(--neon-cyan);
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.9); } }
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
+        .reveal { opacity: 1; transform: translateY(0); }
+        .proof-section { background: rgba(14, 14, 20, .55); border-top: 1px solid rgba(30, 41, 59, .5); border-bottom: 1px solid rgba(30, 41, 59, .5); }
+        .form-field { width: 100%; border-radius: .75rem; border: 1px solid rgba(148,163,184,.25); background: rgba(5,5,8,.8); color: #f8fafc; padding: .85rem 1rem; font: inherit; }
+        .form-field:focus { outline: 2px solid var(--neon-cyan); outline-offset: 2px; }
+        .form-field option { color: #0f172a; background: #f8fafc; }
+        .faq-question { width: 100%; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+        .faq-question span { margin: 0; }
+        .faq-question:focus-visible { outline: 2px solid var(--neon-cyan); outline-offset: 5px; border-radius: .25rem; }
+        #mobile-menu {
+            background: rgba(5, 5, 8, 0.98);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 51;
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border-dim);
+        }
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            width: 64px;
+            height: 64px;
+            border-radius: 50% !important;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+            animation: floatWa 3s ease-in-out infinite;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none !important;
+        }
+        .float-wa:hover { transform: scale(1.15) rotate(-5deg); }
+        .float-wa, .btn-primary, .btn-outline { cursor: pointer; }
+        .faq-question:hover span { color: var(--neon-cyan); }
+        .float-wa svg { width: 32px; height: 32px; color: white; }
+        @keyframes floatWa { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        #cursor-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.08), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .section-subtitle { font-size: 1rem; }
+            .hero-title { font-size: 2.5rem !important; line-height: 1.1 !important; }
+        }
+        .text-neon-gradient {
+            background: linear-gradient(135deg, #fff 0%, var(--neon-cyan) 50%, var(--neon-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: white;
+            border: none;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.5), 0 4px 12px rgba(0, 240, 255, 0.3);
+        }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: #e2e8f0;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-outline:hover {
+            border-color: var(--neon-cyan);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+        }
+        .badge-android {
+            background: rgba(164, 205, 73, 0.1);
+            border-color: rgba(164, 205, 73, 0.3);
+            color: #a4c639;
+        }
+        .badge-apple {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        .phone-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 2rem;
+            background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(168,85,247,0.15));
+            filter: blur(24px);
+            opacity: 0.6;
+            animation: pulseSlow 4s ease-in-out infinite;
+        }
+        @keyframes pulseSlow { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+        section[id] { scroll-margin-top: 6rem; }
+        .hero-visual { min-height: 280px; }
+        @media (max-width: 640px) {
+            .float-wa { width: 56px; height: 56px; right: 18px; bottom: 18px; }
+            .float-wa svg { width: 28px; height: 28px; }
+            #home { min-height: auto; padding-top: 7rem; padding-bottom: 6rem; }
+            .hero-visual { min-height: 230px; }
+        }
+    </style>
+</head>
+<body>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Solucell SP",
+        "image": "https://solucellsp.com.br/solucell.jpg",
+        "telephone": "+5511939432371",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "url": "https://solucellsp.com.br/",
+        "sameAs": ["https://wa.me/5511939432371"],
+        "priceRange": "$$",
+        "areaServed": "São Paulo, SP",
+        "serviceType": ["Assistência técnica para celular", "Troca de tela", "Troca de bateria", "Configuração de aparelho", "Suporte de operadora"]
+    }
+    </script>
+
+    <div class="grid-bg"></div>
+    <div class="orb orb-cyan"></div>
+    <div class="orb orb-magenta"></div>
+    <div class="orb orb-purple"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Botão Flutuante WhatsApp com ícone oficial corrigido -->
+    <a href="#orcamento" class="float-wa" aria-label="Pedir uma avaliação de celular">
+        <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.256.59 4.458 1.71 6.398L3.09 29.06l6.836-1.792a12.743 12.743 0 0 0 6.078 1.542h.006c7.058 0 12.798-5.74 12.798-12.8 0-3.42-1.332-6.636-3.75-9.054A12.716 12.716 0 0 0 16.004 3.2zm0 23.446h-.004a10.61 10.61 0 0 1-5.408-1.48l-.388-.23-4.056 1.064 1.082-3.954-.252-.402a10.594 10.594 0 0 1-1.624-5.644c0-5.868 4.776-10.644 10.65-10.644 2.844 0 5.516 1.108 7.526 3.12a10.576 10.576 0 0 1 3.118 7.528c0 5.868-4.776 10.642-10.644 10.642zm5.84-7.972c-.32-.16-1.894-.934-2.188-1.04-.294-.108-.508-.16-.72.16-.214.32-.826 1.04-1.014 1.254-.186.214-.374.24-.694.08-.32-.16-1.352-.498-2.574-1.588-.952-.848-1.594-1.896-1.78-2.216-.188-.32-.02-.494.14-.654.144-.144.32-.374.48-.56.16-.188.214-.32.32-.534.108-.214.054-.4-.026-.56-.08-.16-.72-1.734-.988-2.374-.26-.624-.524-.54-.72-.55l-.614-.01c-.214 0-.56.08-.854.4-.294.32-1.12 1.094-1.12 2.668 0 1.574 1.146 3.094 1.306 3.308.16.214 2.256 3.444 5.466 4.83.764.33 1.36.526 1.824.674.766.244 1.464.21 2.016.126.614-.092 1.894-.774 2.16-1.522.268-.746.268-1.386.188-1.52-.08-.134-.294-.214-.614-.374z"/></svg>
+    </a>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#050508]/80 backdrop-blur-xl border-b border-[#1e293b]/50">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#home" class="flex items-center gap-3 cursor-pointer" aria-label="Solucell SP — voltar ao início">
+                    <img src="solucell.jpg" alt="Logotipo oficial da Solucell SP — assistência técnica, reparo em placas e software mobile" class="h-11 w-11 md:h-12 md:w-12 rounded-full object-cover shadow-lg shadow-cyan-500/20" width="48" height="48" fetchpriority="high">
+                    <span class="font-display font-bold text-white text-lg tracking-wider">SOLUCELL <span class="text-[#00f0ff]">SP</span></span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="text-white hover:text-[#00f0ff] transition-colors">Início</a>
+                    <a href="#servicos" class="text-white hover:text-[#00f0ff] transition-colors">Serviços</a>
+                    <a href="#sobre" class="text-white hover:text-[#00f0ff] transition-colors">Sobre</a>
+                    <a href="#perguntas" class="text-white hover:text-[#00f0ff] transition-colors">Perguntas</a>
+                    <a href="#orcamento" class="bg-[#00f0ff] hover:bg-[#33f0ff] text-[#050508] px-5 py-2.5 rounded-lg font-bold transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)]">Pedir avaliação</a>
+                </nav>
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="mobile-menu-button" type="button" aria-label="Abrir menu" class="text-white hover:text-[#00f0ff] transition-colors p-2">
+                        <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-[#1e293b]/50 bg-[#050508]/95 backdrop-blur-xl py-6">
+            <div class="max-w-7xl mx-auto px-5 space-y-4">
+                <a href="#home" class="block text-white hover:text-[#00f0ff] transition-colors py-2">Início</a>
+                <a href="#servicos" class="block text-white hover:text-[#00f0ff] transition-colors py-2">Serviços</a>
+                <a href="#sobre" class="block text-white hover:text-[#00f0ff] transition-colors py-2">Sobre</a>
+                <a href="#perguntas" class="block text-white hover:text-[#00f0ff] transition-colors py-2">Perguntas</a>
+                <a href="#orcamento" class="block bg-[#00f0ff] text-[#050508] px-5 py-3 rounded-lg font-bold text-center transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)]">Pedir avaliação</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-3 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
+                        <span class="text-[#00f0ff] text-xs font-bold tracking-widest uppercase">Atendimento mediante avaliação · São Paulo / SP</span>
+                    </div>
+                    <h1 class="hero-title text-4xl md:text-6xl font-bold leading-tight mb-6 text-white">
+                        Assistência para<br>
+                        <span class="text-neon-gradient">seu celular, sem complicação</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 max-w-lg leading-relaxed">
+                        Assistência para <span class="text-white font-semibold">Android</span> e <span class="text-white font-semibold">iPhone</span>: troca de tela e bateria, configuração e orientação para recuperação de contas pelos canais oficiais. Conte o modelo e o problema para receber uma avaliação pelo WhatsApp.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#orcamento" class="btn-primary py-4 px-8 rounded-2xl text-base flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(0,240,255,0.4)]">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Pedir avaliação
+                        </a>
+                        <a href="#servicos" class="btn-outline py-4 px-8 rounded-2xl text-base flex items-center justify-center gap-3">
+                            Ver serviços
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        </a>
+                    </div>
+                    <div class="mt-10 flex flex-wrap items-center gap-4 text-slate-400 text-xs font-mono">
+                        <div class="flex items-center gap-2">
+                            <span class="pulse-dot"></span>
+                            <span>Avaliação inicial</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="pulse-dot" style="animation-delay: 0.5s;"></span>
+                            <span>Orçamento antes do serviço</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="pulse-dot" style="animation-delay: 1s;"></span>
+                            <span>Atendimento pelo WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute inset-0 phone-glow"></div>
+                        <div class="hero-visual relative z-10 w-full aspect-video bg-[#050508] rounded-[2rem] border-2 border-[#1e293b]/50 shadow-[0_0_60px_rgba(0,240,255,0.15)] overflow-hidden flex items-center justify-center p-6">
+                            <div class="text-center">
+                                <div class="text-white font-bold text-lg md:text-xl leading-tight">Seu celular precisa de reparo?</div>
+                                <p class="text-xs md:text-sm text-slate-300 mt-2 mb-4">Conte o modelo e o problema para pedir uma avaliação.</p>
+                                <a href="https://wa.me/5511939432371?text=Ol%C3%A1%21%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o%20para%20meu%20celular." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#00f0ff] hover:bg-[#33f0ff] text-[#050508] px-4 py-2.5 rounded-lg text-xs md:text-sm font-bold transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+                                    Pedir avaliação pelo WhatsApp
+                                    <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7 7 7-7 7"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-slate-600">
+            <span class="text-xs tracking-widest uppercase">scroll</span>
+            <svg class="w-4 h-4 animate-bounce text-[#00f0ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#00f0ff] text-xs font-bold tracking-widest uppercase">Portfólio de Serviços</span>
+                <h2 class="section-title text-white mt-3 mb-6">Tudo o que seu celular precisa</h2>
+                <p class="section-subtitle text-slate-400">
+                    Especializados em ativação e reparo de smartphones Android e Apple. Sem complicação, sem enrolação.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#00f0ff]/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#a4c639]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div class="badge badge-android mb-6">Android</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Assistência Android</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Orientação para recuperar o acesso ao seu próprio aparelho usando procedimentos oficiais. O processo pode exigir comprovação de propriedade e, em alguns casos, apagar os dados.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Orientação ao titular</li>
+                            <li class="flex items-center gap-2">▸ Procedimentos oficiais</li>
+                            <li class="flex items-center gap-2">▸ Compatibilidade sob consulta</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Configuração do aparelho" class="service-cta text-[#00f0ff] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#ff00e6]/50 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 100ms;">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#ffffff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="badge badge-apple mb-6">iPhone / Apple</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Assistência iPhone</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Orientação para configuração de iPhone e recuperação de conta pelo titular, seguindo os canais oficiais da Apple. Restrições de ativação ou gerenciamento precisam ser tratadas com o responsável pelo aparelho.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Configuração do aparelho</li>
+                            <li class="flex items-center gap-2">▸ Orientação ao titular</li>
+                            <li class="flex items-center gap-2">▸ Canais oficiais da Apple</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Configuração do aparelho" class="service-cta text-[#ff00e6] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#00f0ff]/50 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 200ms;">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#00f0ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div class="badge badge-android mb-6">Qualquer operadora</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Suporte de Operadora</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Ajudamos a identificar restrições de rede e a buscar o desbloqueio pelos canais da operadora responsável, conforme as regras e condições do aparelho.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Identificação da restrição</li>
+                            <li class="flex items-center gap-2">▸ Orientação sobre a operadora</li>
+                            <li class="flex items-center gap-2">▸ Condições sob consulta</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Suporte de operadora" class="service-cta text-[#00f0ff] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#00ff88]/50 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 100ms;">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="badge badge-apple mb-6">Tela / Vidro</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Troca de Tela e Vidro</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Tela trincada ou touch com problema? Consulte disponibilidade, tipo de peça, prazo e garantia para o modelo do seu aparelho.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Vidro trincado</li>
+                            <li class="flex items-center gap-2">▸ Display quebrado</li>
+                            <li class="flex items-center gap-2">▸ Touch não responde</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Troca de tela ou vidro" class="service-cta text-[#00ff88] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#ff00e6]/50 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 200ms;">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#ff00e6]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div class="badge badge-android mb-6">Bateria</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Troca de Bateria</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Celular descarregando rápido ou desligando sozinho? Consulte compatibilidade, disponibilidade da peça, prazo e condições de garantia.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Descarrega rápido</li>
+                            <li class="flex items-center gap-2">▸ Bateria inchada</li>
+                            <li class="flex items-center gap-2">▸ Não carrega</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Troca de bateria" class="service-cta text-[#ff00e6] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl reveal group hover:border-[#a855f7]/50 transition-all duration-300 flex flex-col justify-between" style="transition-delay: 300ms;">
+                    <div>
+                        <div class="icon-ring mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-[#a855f7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div class="badge badge-apple mb-6">Dados</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Recuperação de Dados</h3>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Fazemos uma avaliação inicial do aparelho e explicamos as opções disponíveis. A possibilidade de recuperar arquivos depende do estado do dispositivo e não pode ser garantida antes do diagnóstico.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-400 font-mono mb-8">
+                            <li class="flex items-center gap-2">▸ Fotos e vídeos</li>
+                            <li class="flex items-center gap-2">▸ Contatos e mensagens</li>
+                            <li class="flex items-center gap-2">▸ Arquivos diversos</li>
+                        </ul>
+                    </div>
+                    <a href="#orcamento" data-service="Recuperação de dados (avaliação)" class="service-cta text-[#a855f7] text-xs font-bold hover:text-white transition-colors">Solicitar orçamento →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="proof-section py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-2xl reveal text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-[#00f0ff]/10 flex items-center justify-center mx-auto mb-6 text-[#00f0ff]">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Atendimento rápido</h3>
+                    <p class="text-slate-400 text-sm">Avaliamos o modelo e explicamos o prazo estimado antes de você aprovar o serviço.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl reveal text-center" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-[#ff00e6]/10 flex items-center justify-center mx-auto mb-6 text-[#ff00e6]">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Garantia informada</h3>
+                    <p class="text-slate-400 text-sm">As condições e o prazo de garantia serão apresentados no orçamento conforme o serviço.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl reveal text-center" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-[#00ff88]/10 flex items-center justify-center mx-auto mb-6 text-[#00ff88]">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Opções de pagamento</h3>
+                    <p class="text-slate-400 text-sm">Consulte as opções de pagamento disponíveis ao receber o orçamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-24 md:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#00f0ff]/20 to-[#a855f7]/20 rounded-[2rem] blur-xl"></div>
+                        <div class="relative w-full h-64 md:h-80 rounded-[2rem] bg-[#0e0e14] border border-[#1e293b]/50 overflow-hidden flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-gradient-to-br from-[#00f0ff] to-[#a855f7] rounded-full mx-auto mb-4 flex items-center justify-center shadow-[0_0_40px_rgba(0,240,255,0.4)]">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div class="text-white font-bold text-xl">Solucell SP</div>
+                                <div class="text-xs text-slate-400 tracking-widest uppercase mt-1">São Paulo · SP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <span class="text-[#a855f7] text-xs font-bold tracking-widest uppercase mb-4 block">Quem somos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Seu celular travou?<br>Nós resolvemos.</h2>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        A <span class="text-white font-semibold">Solucell SP</span> ajuda você a entender as opções de atendimento para celulares, com comunicação direta e orçamento informado antes da aprovação de qualquer serviço.
+                    </p>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        Atendemos solicitações de assistência para Android e Apple pelo WhatsApp. O diagnóstico, o prazo, as peças e as condições de garantia são confirmados conforme o modelo e o serviço solicitado.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#00f0ff] mt-0.5">▸</span>
+                            <div>
+                                <div class="text-white font-semibold">Assistência Android e iPhone</div>
+                                <div class="text-xs text-slate-400">Orientação para recuperação de conta do titular por canais oficiais</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#00f0ff] mt-0.5">▸</span>
+                            <div>
+                                <div class="text-white font-semibold">Atendimento via WhatsApp</div>
+                                <div class="text-xs text-slate-400">Orçamento rápido, sem sair de casa</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#00f0ff] mt-0.5">▸</span>
+                            <div>
+                                <div class="text-white font-semibold">São Paulo e região</div>
+                                <div class="text-xs text-slate-400">Consulte pelo WhatsApp a disponibilidade para sua região</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="perguntas" class="py-24 md:py-32 relative">
+        <div class="max-w-4xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-[#00f0ff] text-xs font-bold tracking-widest uppercase">FAQ</span>
+                <h2 class="section-title text-white mt-3 mb-6">Dúvidas frequentes</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="glass p-6 rounded-xl reveal border border-[#1e293b]/50">
+                    <button type="button" class="faq-question flex justify-between items-center group" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
+                        <span class="text-white font-semibold text-lg group-hover:text-[#00f0ff] transition-colors">Quanto tempo leva para avaliar um celular?</span>
+                        <svg class="w-5 h-5 text-[#00f0ff] transition-transform shrink-0 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content mt-4 pt-4 border-t border-[#1e293b]/30 text-slate-400 text-sm leading-relaxed" id="faq-answer-1" hidden>
+                        O prazo depende do modelo, do diagnóstico e da disponibilidade de peças. Informamos uma estimativa no orçamento antes do início do serviço.
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-xl reveal border border-[#1e293b]/50">
+                    <button type="button" class="faq-question flex justify-between items-center group" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
+                        <span class="text-white font-semibold text-lg group-hover:text-[#00f0ff] transition-colors">Vocês atendem qualquer modelo Android?</span>
+                        <svg class="w-5 h-5 text-[#00f0ff] transition-transform shrink-0 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content mt-4 pt-4 border-t border-[#1e293b]/30 text-slate-400 text-sm leading-relaxed" id="faq-answer-2" hidden>
+                        Atendemos diversas marcas. Envie o fabricante, o modelo e uma descrição do problema para confirmarmos as opções disponíveis. Não envie PIN, senha ou códigos de verificação.
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-xl reveal border border-[#1e293b]/50">
+                    <button type="button" class="faq-question flex justify-between items-center group" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
+                        <span class="text-white font-semibold text-lg group-hover:text-[#00f0ff] transition-colors">Como recuperar uma conta Apple?</span>
+                        <svg class="w-5 h-5 text-[#00f0ff] transition-transform shrink-0 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content mt-4 pt-4 border-t border-[#1e293b]/30 text-slate-400 text-sm leading-relaxed" id="faq-answer-3" hidden>
+                        A recuperação deve ser feita pelo titular da conta, utilizando os procedimentos oficiais da Apple. Não solicitamos sua senha, código de verificação nem dados de acesso.
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-xl reveal border border-[#1e293b]/50">
+                    <button type="button" class="faq-question flex justify-between items-center group" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
+                        <span class="text-white font-semibold text-lg group-hover:text-[#00f0ff] transition-colors">Vocês atendem em São Paulo?</span>
+                        <svg class="w-5 h-5 text-[#00f0ff] transition-transform shrink-0 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content mt-4 pt-4 border-t border-[#1e293b]/30 text-slate-400 text-sm leading-relaxed" id="faq-answer-4" hidden>
+                        O contato inicial é feito pelo WhatsApp. A disponibilidade de atendimento presencial ou para sua região é confirmada caso a caso.
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-xl reveal border border-[#1e293b]/50">
+                    <button type="button" class="faq-question flex justify-between items-center group" aria-expanded="false" aria-controls="faq-answer-5" onclick="toggleFaq(this)">
+                        <span class="text-white font-semibold text-lg group-hover:text-[#00f0ff] transition-colors">Quais formas de pagamento aceitam?</span>
+                        <svg class="w-5 h-5 text-[#00f0ff] transition-transform shrink-0 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content mt-4 pt-4 border-t border-[#1e293b]/30 text-slate-400 text-sm leading-relaxed" id="faq-answer-5" hidden>
+                        As formas de pagamento disponíveis são informadas junto com o orçamento, antes de você aprovar o serviço.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 md:py-32 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-5 md:px-8 relative z-10">
+            <div class="glass p-10 md:p-16 rounded-[3rem] border border-[#1e293b]/50 text-center reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Seu celular precisa de assistência?</h2>
+                <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Informe o modelo e o que aconteceu. Vamos avaliar o caso e combinar o próximo passo antes de qualquer serviço.
+                </p>
+                <a href="#orcamento" class="inline-block w-full md:w-auto rounded-2xl">
+                    <span class="w-full md:w-auto btn-primary py-5 px-10 text-lg flex items-center justify-center gap-3 rounded-2xl shadow-[0_0_40px_rgba(0,240,255,0.5)]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Falar pelo WhatsApp Agora
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="orcamento" class="py-24 md:py-32 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-5 md:px-8 relative z-10">
+            <div class="glass p-8 md:p-12 rounded-3xl border-[#1e293b]/50 reveal">
+                <div class="text-center mb-10">
+                    <span class="text-[#00f0ff] text-xs font-bold tracking-widest uppercase">Pedido de avaliação</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-3 mb-6">Conte o que aconteceu</h2>
+                    <p class="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">Preencha os dados básicos. Vamos preparar uma mensagem para você revisar e enviar pelo WhatsApp.</p>
+                </div>
+                <form id="request-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="device-model" class="block text-sm font-semibold text-white mb-2">Modelo do aparelho *</label>
+                            <input id="device-model" name="model" class="form-field" type="text" maxlength="80" placeholder="Ex.: Samsung Galaxy A54" autocomplete="off" required>
+                        </div>
+                        <div>
+                            <label for="requested-service" class="block text-sm font-semibold text-white mb-2">Serviço desejado *</label>
+                            <select id="requested-service" name="service" class="form-field" required>
+                                <option value="" disabled selected>Selecione um serviço</option>
+                                <option value="Troca de tela ou vidro">Troca de tela ou vidro</option>
+                                <option value="Troca de bateria">Troca de bateria</option>
+                                <option value="Configuração do aparelho">Configuração do aparelho</option>
+                                <option value="Recuperação de dados (avaliação)">Recuperação de dados (avaliação)</option>
+                                <option value="Suporte de operadora">Suporte de operadora</option>
+                                <option value="Outro / não sei ainda">Outro / não sei ainda</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="device-problem" class="block text-sm font-semibold text-white mb-2">Descreva o problema *</label>
+                        <textarea id="device-problem" name="details" class="form-field" rows="4" maxlength="600" placeholder="Conte brevemente o que ocorreu. Não inclua senhas ou códigos." required></textarea>
+                    </div>
+                    <p class="text-xs text-slate-400">Por segurança, não envie senhas, PINs, códigos de verificação, IMEI ou dados pessoais sensíveis. Este site não armazena os campos. Ao continuar, você abrirá o WhatsApp para revisar e enviar a mensagem. <a href="pol%C3%ADtica-de-privacidade.html" class="underline hover:text-white">Leia a Política de Privacidade</a>.</p>
+                    <button type="submit" class="btn-primary w-full md:w-auto py-4 px-8 rounded-2xl text-base flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Continuar pelo WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-[#1e293b]/50 bg-[#050508] py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#00f0ff] to-[#a855f7] flex items-center justify-center text-white font-bold">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-lg tracking-tight">SOLUCELL<span class="text-[#00f0ff]"> SP</span></div>
+                            <div class="text-xs text-[#00f0ff]/70 font-mono tracking-widest uppercase">Assistência Técnica</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Assistência para celulares Android e iPhone em São Paulo, com avaliação e orçamento apresentados antes da execução do serviço.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm tracking-widest uppercase">Serviços</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Assistência Android</a></li>
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Assistência iPhone</a></li>
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Suporte de Operadora</a></li>
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Troca de Tela</a></li>
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Troca de Bateria</a></li>
+                        <li><a href="#servicos" class="hover:text-[#00f0ff] transition-colors">Recuperação de Dados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm tracking-widest uppercase">Empresa</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="#sobre" class="hover:text-[#00f0ff] transition-colors">Sobre nós</a></li>
+                        <li><a href="#perguntas" class="hover:text-[#00f0ff] transition-colors">Perguntas frequentes</a></li>
+                        <li><a href="pol%C3%ADtica-de-privacidade.html" class="hover:text-[#00f0ff] transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm tracking-widest uppercase">Contato</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#00f0ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>São Paulo / SP</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#00f0ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 011.747l.5 8.571a1 1 0 01-.463 1.253a1 1 0 01-1.195.7H7a2 2 0 01-2-2V5zm13.57 1.747a1 1 0 011.432 0l2.5 4.286a1 1 0 01-.158 1.239A1 1 0 0118.5 13H18a1 1 0 01-1-1v-.5a1 1 0 00-1-1.432l-2.5-4.286A1 1 0 0114.07 3h3.5l1 1.747z"></path></svg>
+                            <span><a href="https://wa.me/5511939432371" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f0ff] transition-colors">+55 11 93943-2371</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[#1e293b]/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>© <span id="footer-year">2026</span> Solucell SP. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="https://wa.me/5511939432371" target="_blank" rel="noopener noreferrer" class="hover:text-[#00f0ff] transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script src="request-form.js" defer></script>
+    <script>
+        const btnMobile = document.getElementById('mobile-menu-button');
+        const menuMobile = document.getElementById('mobile-menu');
+        
+        if (btnMobile && menuMobile) {
+            btnMobile.setAttribute('aria-expanded', 'false');
+            btnMobile.setAttribute('aria-controls', 'mobile-menu');
+            
+            btnMobile.addEventListener('click', () => {
+                const isOpening = menuMobile.classList.contains('hidden');
+                menuMobile.classList.toggle('hidden');
+                btnMobile.setAttribute('aria-expanded', String(isOpening));
+                btnMobile.setAttribute('aria-label', isOpening ? 'Fechar menu' : 'Abrir menu');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuMobile.classList.add('hidden');
+                    btnMobile.setAttribute('aria-expanded', 'false');
+                    btnMobile.setAttribute('aria-label', 'Abrir menu');
+                });
+            });
+        }
+
+        function toggleFaq(button) {
+            const answer = document.getElementById(button.getAttribute('aria-controls'));
+            const shouldOpen = answer.hidden;
+            document.querySelectorAll('#perguntas .faq-question').forEach(question => {
+                question.setAttribute('aria-expanded', 'false');
+                document.getElementById(question.getAttribute('aria-controls')).hidden = true;
+                question.querySelector('svg').classList.remove('rotate-180');
+            });
+            if (shouldOpen) {
+                answer.hidden = false;
+                button.setAttribute('aria-expanded', 'true');
+                button.querySelector('svg').classList.add('rotate-180');
+            }
+        }
+
+        const isTouch = window.matchMedia('(hover: none)').matches;
+        if (!isTouch && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const glow = document.getElementById('cursor-glow');
+            if (glow) {
+                let mouseX = -999, mouseY = -999;
+                let glowX = -999, glowY = -999;
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+                function animateGlow() {
+                    glowX += (mouseX - glowX) * 0.12;
+                    glowY += (mouseY - glowY) * 0.12;
+                    glow.style.left = glowX + 'px';
+                    glow.style.top = glowY + 'px';
+                    glow.style.opacity = '1';
+                    requestAnimationFrame(animateGlow);
+                }
+                animateGlow();
+                document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+                document.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') { e.preventDefault(); return; }
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ 
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            });
+        });
+
+        const footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
